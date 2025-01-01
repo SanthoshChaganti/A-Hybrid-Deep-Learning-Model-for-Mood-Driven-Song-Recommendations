@@ -19,3 +19,7 @@ Deep Learning
 TensorFlow/Keras: For building and training the emotion detection model.
 OpenCV: For processing facial images.
 Pretrained Models: Optionally used for transfer learning, e.g., VGG16 or ResNet
+
+Datasets:
+FER-2013 Dataset: https://www.kaggle.com/datasets/msambare/fer2013
+RAF-DB Dataset : https://www.kaggle.com/datasets/shuvoalok/raf-db-dataset
