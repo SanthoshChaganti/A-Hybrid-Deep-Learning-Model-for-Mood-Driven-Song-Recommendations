@@ -1,0 +1,95 @@
+/* Global reset */
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+/* App container to ensure footer stays at bottom */
+.App {
+  display: flex;
+  flex-direction: column;
+  min-height: 100vh;
+}
+
+/* Navbar styles */
+.navbar {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  background-color: rgba(40, 44, 52, 0.9); /* Semi-transparent for readability */
+  padding: 1rem 2rem;
+  color: white;
+}
+
+.navbar-title {
+  text-decoration: none;
+  color: #61dafb;
+  font-size: 1.8rem;
+  font-weight: bold;
+}
+
+.navbar-links {
+  display: flex;
+  gap: 1.5rem; /* Space between links */
+}
+
+.navbar-links a {
+  text-decoration: none;
+  color: white;
+  font-size: 1rem;
+}
+
+.navbar-links a:hover {
+  text-decoration: underline;
+}
+
+/* Home page main content styling */
+.home {
+  text-align: center;
+  font-size:20px;
+  margin: 2rem auto;
+  color: white;
+  max-width: 800px;
+  background-color: rgba(0, 0, 0, 0.6); /* Dark overlay for text readability */
+  padding: 2rem;
+  border-radius: 8px;
+}
+
+/* About section styling */
+.about {
+  padding: 2rem;
+  max-width: 800px;
+  margin: 2rem auto;
+  background-color: rgba(255, 255, 255, 0.1); /* Light overlay for readability */
+  color: white;
+  border-radius: 8px;
+}
+
+.about h1, .about h2 {
+  color: #61dafb;
+}
+
+.about ul {
+  list-style-type: disc;
+  margin-left: 20px;
+  color: #ddd;
+}
+
+.about a {
+  color: #61dafb;
+  text-decoration: none;
+}
+
+.about a:hover {
+  text-decoration: underline;
+}
+
+/* Footer styling */
+.footer {
+  margin-top: auto; /* Keeps footer at the bottom */
+  padding: 1rem;
+  background-color: rgba(40, 44, 52, 0.9);
+  color: white;
+  text-align: center;
+}

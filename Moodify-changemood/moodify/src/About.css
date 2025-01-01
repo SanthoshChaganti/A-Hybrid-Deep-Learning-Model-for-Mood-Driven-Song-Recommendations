@@ -1,0 +1,62 @@
+/* About.css */
+.about {
+    background-color: #001f3d;
+    color: white;
+    padding: 30px;
+    border-radius: 15px;
+    margin: 20px auto;
+    max-width: 900px;
+    box-shadow: 0 0 15px rgba(0, 0, 0, 0.7);
+  }
+  
+  .about-title {
+    font-size: 32px;
+    font-weight: bold;
+    color: #4a90e2;
+    text-align: center;
+    margin-bottom: 20px;
+  }
+  
+  .about-description {
+    font-size: 18px;
+    color: #d1e0f0;
+    text-align: center;
+    margin-bottom: 30px;
+  }
+  
+  .about-section-title {
+    font-size: 24px;
+    font-weight: bold;
+    color: #4a90e2;
+    margin-bottom: 15px;
+    text-align: left;
+  }
+  
+  .about-list {
+    list-style-type: none;
+    padding: 0;
+    text-align: left;
+  }
+  
+  .about-list li {
+    font-size: 16px;
+    margin: 10px 0;
+    color: #ddd;
+  }
+  
+  .about-text {
+    font-size: 18px;
+    color: #d1e0f0;
+    text-align: left;
+    margin-bottom: 20px;
+  }
+  
+  .about-link {
+    color: #4a90e2;
+    text-decoration: none;
+  }
+  
+  .about-link:hover {
+    text-decoration: underline;
+  }
+  
