@@ -21,7 +21,11 @@ CLIENT_SECRET = os.getenv('SPOTIFY_CLIENT_SECRET', '008b719df4bb47d8b2f3d026ada4
 sp = spotipy.Spotify(auth_manager=SpotifyClientCredentials(client_id=CLIENT_ID, client_secret=CLIENT_SECRET))
 
 # Load the trained model
+<<<<<<< HEAD
 model = tf.keras.models.load_model('emotion_detection_hybrid.h5')
+=======
+model = tf.keras.models.load_model('Spotify/emotion_detection_model.h5')
+>>>>>>> 24736e9d2dc52bd949caa839a5a4ff64195ef7f3
 
 # Emotion map
 emotion_map = {
@@ -115,6 +119,7 @@ def search():
 def fetch_spotify_tracks(emotion):
     # Updated playlists based on emotion and focusing strictly on Telugu songs
     playlists = {
+<<<<<<< HEAD
     'Happy': 'celebratory and joyful Telugu tracks',  
     # Uplifting and energetic songs to amplify the happiness and keep the positive vibes flowing.
 
@@ -137,6 +142,16 @@ def fetch_spotify_tracks(emotion):
     # Empowering tracks that instill confidence and courage, gradually replacing fear with determination and positivity.
 }
 
+=======
+        'Happy': 'happy telugu songs',              # Ensure to specify Telugu in the search query
+        'Sad': 'sad telugu songs',
+        'Anger': 'angry telugu songs',
+        'Surprise': 'energetic telugu songs',
+        'Neutral': 'chill telugu songs',
+        'Disgust': 'relaxing telugu songs',
+        'Fear': 'focus telugu songs'
+    }
+>>>>>>> 24736e9d2dc52bd949caa839a5a4ff64195ef7f3
     
     # Get search query for Spotify based on the detected emotion
     query = playlists.get(emotion, 'mood telugu music')  # Default to 'mood telugu music' if emotion not found
