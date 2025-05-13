@@ -11,7 +11,8 @@ from spotipy.oauth2 import SpotifyClientCredentials
 import os
 import random  
 
-app = Flask(__name__)
+app = Flask(__name__, static_folder='../Moodify-changemood/build', static_url_path='')
+
 CORS(app)
 
 # Spotify API credentials
@@ -21,11 +22,7 @@ CLIENT_SECRET = os.getenv('SPOTIFY_CLIENT_SECRET', '008b719df4bb47d8b2f3d026ada4
 sp = spotipy.Spotify(auth_manager=SpotifyClientCredentials(client_id=CLIENT_ID, client_secret=CLIENT_SECRET))
 
 # Load the trained model
-<<<<<<< HEAD
 model = tf.keras.models.load_model('emotion_detection_hybrid.h5')
-=======
-model = tf.keras.models.load_model('Spotify/emotion_detection_model.h5')
->>>>>>> 24736e9d2dc52bd949caa839a5a4ff64195ef7f3
 
 # Emotion map
 emotion_map = {
@@ -43,7 +40,7 @@ def preprocess_image(image_base64):
     img_data = base64.b64decode(image_base64.split(',')[1])
     img = Image.open(BytesIO(img_data))
     img = img.convert('L')  # Convert to grayscale
-    img = img.resize((48, 48))  # Resize to match the model input size
+    img = img.resize((48, 48))  # Resizea to match the model input size
     img_array = np.array(img).astype('float32') / 255.0  # Normalize
     img_array = np.expand_dims(img_array, axis=(0, -1))  # Expand dimensions for batch and channel
     return img_array
@@ -119,7 +116,6 @@ def search():
 def fetch_spotify_tracks(emotion):
     # Updated playlists based on emotion and focusing strictly on Telugu songs
     playlists = {
-<<<<<<< HEAD
     'Happy': 'celebratory and joyful Telugu tracks',  
     # Uplifting and energetic songs to amplify the happiness and keep the positive vibes flowing.
 
@@ -142,16 +138,6 @@ def fetch_spotify_tracks(emotion):
     # Empowering tracks that instill confidence and courage, gradually replacing fear with determination and positivity.
 }
 
-=======
-        'Happy': 'happy telugu songs',              # Ensure to specify Telugu in the search query
-        'Sad': 'sad telugu songs',
-        'Anger': 'angry telugu songs',
-        'Surprise': 'energetic telugu songs',
-        'Neutral': 'chill telugu songs',
-        'Disgust': 'relaxing telugu songs',
-        'Fear': 'focus telugu songs'
-    }
->>>>>>> 24736e9d2dc52bd949caa839a5a4ff64195ef7f3
     
     # Get search query for Spotify based on the detected emotion
     query = playlists.get(emotion, 'mood telugu music')  # Default to 'mood telugu music' if emotion not found
