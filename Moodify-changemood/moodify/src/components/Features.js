@@ -64,13 +64,8 @@ function Features() {
     setShowSubmitDialog(false);
     setIsSubmitting(true);
     try {
-      const formData = new FormData();
-      formData.append('image', imageSrc);
-
-      const response = await axios.post('http://localhost:5000/upload_image', formData, {
-        headers: {
-          'Content-Type': 'multipart/form-data',
-        },
+      const response = await axios.post('http://localhost:5000/upload_image', {
+        image: imageSrc, // Send the base64 image directly
       });
 
       setEmotion(response.data.emotion);
@@ -88,14 +83,13 @@ function Features() {
     try {
       const song = songs[index];
 
-      if (song.track_url && song.track_url.includes('spotify.com')) {
-        const trackId = song.track_url.split('/').pop().split('?')[0];
-        if (trackId) {
-          window.open(`https://open.spotify.com/embed/track/${trackId}`, '_blank');
-          return;
-        }
+      // If the song has a Spotify embed URL, open the embedded player in a new window
+      if (song.embed_url) {
+        window.open(song.embed_url, '_blank');
+        return;
       }
 
+      // If the song has a direct audio URL, play/pause it
       const currentAudio = audioRefs.current[index];
       if (!currentAudio) {
         console.error('Audio element not found for index:', index);
@@ -165,10 +159,10 @@ function Features() {
                   <p style={styles.songInfo}>
                     {song.name} by {song.artists}
                   </p>
-                  {song.track_url && song.track_url.includes('spotify.com') ? (
+                  {song.embed_url ? (
                     <iframe
                       title={`Spotify track: ${song.name} by ${song.artists}`} // Adding title for accessibility
-                      src={`https://open.spotify.com/embed/track/${song.track_url.split('/').pop()}`}
+                      src={song.embed_url}
                       width="300"
                       height="80"
                       frameBorder="0"
